@@ -93,9 +93,9 @@ class PageflipFormSelectSounds extends XoopsFormElement
         	$this->addOption('', _MI_PAGEFLIP_NONE);
         xoops_load('XoopsLists');
         $sounds = XoopsLists::getFileListAsArray(XOOPS_ROOT_PATH.'/modules/pageflip/sounds/'); 
-        foreach($sounds as $sound) {
-        	$file = explode('.', $sound);
-        	if (strtolower($file[sizeof($file)])=='mp3'||strtolower($file[sizeof($file)])=='wav') {
+        foreach($sounds as $id=>$sound) {
+        	$fileparts = explode('.', $sound);
+        	if (strtolower($fileparts[sizeof($fileparts)])=='mp3'||strtolower($fileparts[sizeof($fileparts)])=='wav') {
         		$this->addOption(XOOPS_URL.'/modules/pageflip/sounds/'.$sound, $sound);
         	}
         }

@@ -134,7 +134,7 @@ $modversion['config'][$i]['valuetype'] = 'text';
 $modversion['config'][$i]['default'] = XOOPS_UPLOAD_PATH;
 $modversion['config'][$i]['options'] = array(	_MI_PAGEFLIP_PATH_XOOPS_UPLOAD_PATH	=>	XOOPS_UPLOAD_PATH,
 												_MI_PAGEFLIP_PATH_XOOPS_VAR_PATH	=>	XOOPS_VAR_PATH,
-												_MI_PAGEFLIP_PATH_XOOPS_OTHER_PATH	=>	'');
+												_MI_PAGEFLIP_PATH_OTHER				=>	'');
 
 $i++;
 $modversion['config'][$i]['name'] = 'uploaddir';
@@ -142,7 +142,7 @@ $modversion['config'][$i]['title'] = '_MI_PAGEFLIP_UPLOADDIR';
 $modversion['config'][$i]['description'] = '_MI_PAGEFLIP_UPLOADDIR_DESC';
 $modversion['config'][$i]['formtype'] = 'text';
 $modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = DIRECTORY_SEPARATOR.'pageflip';
+$modversion['config'][$i]['default'] = 'pageflip';
 
 $i++;
 $modversion['config'][$i]['name'] = 'scale_images';

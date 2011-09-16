@@ -268,7 +268,7 @@
 						$pages->setVar('cid', $cid);
 					}
 					$uploader = new PageflipXoopsMediaUploader($GLOBALS['xoopsModuleConfig']['uploaddirtype'].DS.$GLOBALS['xoopsModuleConfig']['uploaddir'], explode('|', $GLOBALS['xoopsModuleConfig']['allowed_mimetypes']), $GLOBALS['xoopsModuleConfig']['maximum_filesize'], 0, 0, explode('|', $GLOBALS['xoopsModuleConfig']['allowed_file_extensions']));
-					$uploader->setPrefix(substr(md5(microtime(true), mt_rand(0,20), 11)));
+					$uploader->setPrefix(substr(md5(microtime(true)), mt_rand(0,20), 11));
 					  
 					if ($uploader->fetchMedia('imagefile')) {
 					  	if (!$uploader->upload()) {
