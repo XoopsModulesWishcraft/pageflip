@@ -1,0 +1,15 @@
+<div style='float:right; height:45px'>
+	<{$pagenav}>
+</div>
+<table>
+	<tr class='head'>
+		<th><{$smarty.const._MN_PAGEFLIP_TITLE}></th>
+		<th><{$smarty.const._MN_PAGEFLIP_FIRSTPAGE}></th>
+	</tr>
+<{foreach item=book from=$books key=$key}>
+	<tr class='<{cycle values="even,odd"}>'>
+		<td><a href="<{$xoops_url}>/modules/pageflip/?bid=<{$book.bid}>"><strong><{$book.name}></strong><{if $book.description}><br/><{$book.description}><{/if}></a></td>
+		<td><a href="<{$xoops_url}>/modules/pageflip/?bid=<{$book.bid}>"><img border="0" src="<{$book.thumbnail}>"/></a></td>
+	</tr>
+<{/foreach}>
+</table>
