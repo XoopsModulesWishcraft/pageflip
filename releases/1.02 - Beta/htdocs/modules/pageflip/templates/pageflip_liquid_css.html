@@ -1,0 +1,122 @@
+<{foreach item=item from=$css key=$key}>
+<{if $item.mode == '_MI_PAGEFLIP_CSS_FOOTER'}>
+#<{$reference}>Footer {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+#<{$reference}>Footer:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+#<{$reference}>Footer:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{elseif $item.mode == '_MI_PAGEFLIP_CSS_PAGINATION'}>
+#<{$reference}>PaginationMinor {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+#<{$reference}>PaginationMinor:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+#<{$reference}>PaginationMinor:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{elseif $item.mode == '_MI_PAGEFLIP_CSS_CONTENTS'}>
+#<{$reference}>Contents {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+#<{$reference}>Contents:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+#<{$reference}>Contents:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{elseif $item.mode == '_MI_PAGEFLIP_CSS_MENU'}>
+#<{$reference}>Menu {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+#<{$reference}>Menu:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+#<{$reference}>Menu:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{elseif $item.mode == '_MI_PAGEFLIP_CSS_ALTMSG'}>
+#<{$reference}>altmsg {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+#<{$reference}>altmsg:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+#<{$reference}>altmsg:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{elseif $item.mode == '_MI_PAGEFLIP_CSS_ALTLINK'}>
+a.<{$reference}>altlink:link {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+a.<{$reference}>altlink:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+a.<{$reference}>altlink:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{elseif $item.mode == '_MI_PAGEFLIP_CSS_EXTRA'}>
+#<{$reference}><{$item.reference}> {
+	<{$item.css}>
+}
+
+<{if $item.hover}>
+#<{$reference}><{$item.reference}>:hover {
+	<{$item.hover}>
+}
+
+<{/if}>
+<{if $item.visited}>
+#<{$reference}><{$item.reference}>:visited {
+	<{$item.visited}>
+}
+
+<{/if}>
+<{/if}>
+<{/foreach}>
