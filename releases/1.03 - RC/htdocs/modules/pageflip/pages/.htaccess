@@ -1,0 +1,9 @@
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule 	^page-([0-9]+)-([0-9]+)-([0-9]+).jpg$ 				image.php?bid=$1&pid=$2&page=$3&format=jpg
+RewriteRule 	^page-([0-9]+)-([0-9]+)-([0-9]+).gif$ 				image.php?bid=$1&pid=$2&page=$3&format=gif
+RewriteRule 	^page-([0-9]+)-([0-9]+)-([0-9]+).png$ 				image.php?bid=$1&pid=$2&page=$3&format=png
+RewriteRule 	^page-([0-9]+)-([0-9]+)-([0-9]+).swf$ 				image.php?bid=$1&pid=$2&page=$3&format=swf
