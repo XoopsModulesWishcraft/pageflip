@@ -1,0 +1,9 @@
+<h1><a href="<{$book.url}>"><{$book.name}></a></h1>
+<{foreach item=image from=$pages key=key}>
+<{if $image.url}>
+<div style="clear:both; width:100%; height:100%;">
+	<img src="<{$image.url}>" width='99%' height='99%' />
+	<br/>
+</div>
+<{/if}>
+<{/foreach}>
