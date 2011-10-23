@@ -1,0 +1,328 @@
+function <{$reference}>FlippingBook() {
+	this.pages = [
+<{foreach item=page from=$pages key=key}>
+					"<{$page.url}>"<{if $page.last==false}>,<{/if}> 	
+<{/foreach}>	];
+	this.zoomPages = [
+<{foreach item=page from=$zooms key=key}>
+					"<{$page.url}>"<{if $page.last==false}>,<{/if}> 	
+<{/foreach}>	];
+	this.printPages = [
+<{foreach item=page from=$printing key=key}>
+					"<{$page.url}>"<{if $page.last==false}>,<{/if}> 	
+<{/foreach}>	];
+	this.contents = [
+<{foreach item=chapter from=$chapters key=key}>
+					["<{$chapter.name}>", <{$chapter.page}>]<{if $chapter.last==false}>,<{/if}> 	
+<{/foreach}>	];
+
+	this.stageWidth = "<{$settings.stageWidth}>%";
+	this.stageHeight = "<{$settings.stageHeight}>%";
+	
+	this.settings = {
+			bookWidth: <{$settings.bookWidth}>,
+			bookHeight: <{$settings.bookHeight}>,
+			pagesSet: this.pages,
+			zoomPagesSet: this.zoomPages,
+			printPagesSet: this.printPages,
+			scaleContent: <{$settings.scaleContent}>,
+			preserveProportions: <{$settings.preserveProportions}>,
+			centerContent: <{$settings.centerContent}>,
+			hardcover: <{$settings.hardcover}>,
+			hardcoverThickness: <{$settings.hardcoverThickness}>,
+			hardcoverEdgeColor: 0x<{$settings.hardcoverEdgeColor}>,
+			highlightHardcover: <{$settings.highlightHardcover}>,
+			frameWidth: <{$settings.frameWidth}>,
+			frameColor: 0x<{$settings.frameColor}>,
+			frameAlpha: <{$settings.frameAlpha}>,
+			firstPageNumber: <{$settings.firstPageNumber}>,
+			autoFlipSize: <{$settings.autoFlipSize}>,
+			navigationFlipOffset: <{$settings.navigationFlipOffset}>,
+			flipOnClick: <{$settings.flipOnClick}>,
+			handOverCorner: <{$settings.handOverCorner}>,
+			handOverPage: <{$settings.handOverPage}>,
+			alwaysOpened: <{$settings.alwaysOpened}>,
+			staticShadowsType: "<{$settings.staticShadowsType}>", // Asymmetric, Symmetric, Default
+			staticShadowsDepth: <{$settings.staticShadowsDepth}>,
+			staticShadowsLightColor: 0x<{$settings.staticShadowsLightColor}>, // works for "Symmetric" shadows only
+			staticShadowsDarkColor: 0x<{$settings.staticShadowsDarkColor}>,
+			dynamicShadowsDepth: <{$settings.dynamicShadowsDepth}>,
+			dynamicShadowsLightColor: 0x<{$settings.dynamicShadowsLightColor}>, // works for "dark" pages only
+			dynamicShadowsDarkColor: 0x<{$settings.dynamicShadowsDarkColor}>,
+			moveSpeed: <{$settings.moveSpeed}>,
+			closeSpeed: <{$settings.closeSpeed}>,
+			gotoSpeed: <{$settings.gotoSpeed}>,
+			rigidPageSpeed: <{$settings.rigidPageSpeed}>,
+			flipSound: "<{$settings.flipSound}>",
+			hardcoverSound: "<{$settings.hardcoverSound}>",
+			preloaderType: "<{$settings.preloaderType}>", // "Progress Bar", "Round", "Thin", "Dots", "Gradient Wheel", "Gear Wheel", "Line", "Animated Book", "None"
+			pageBackgroundColor: 0x<{$settings.pageBackgroundColor}>,
+			loadOnDemand: <{$settings.loadOnDemand}>,
+			allowPagesUnload: <{$settings.allowPagesUnload}>,
+			showUnderlyingPages: <{$settings.showUnderlyingPages}>,
+			playOnDemand: <{$settings.playOnDemand}>,
+			freezeOnFlip: <{$settings.freezeOnFlip}>,
+			darkPages: <{$settings.darkPages}>,
+			smoothPages: <{$settings.smoothPages}>,
+			rigidPages: <{$settings.rigidPages}>,
+			flipCornerStyle: "<{$settings.flipCornerStyle}>",// "first page only", "each page", "manually"
+			flipCornerPosition: "<{$settings.flipCornerPosition}>",// "bottom-right","top-right","bottom-left","top-left"
+			flipCornerAmount: <{$settings.flipCornerAmount}>,
+			flipCornerAngle: <{$settings.flipCornerAngle}>,
+			flipCornerRelease: <{$settings.flipCornerRelease}>,
+			flipCornerVibrate: <{$settings.flipCornerVibrate}>,
+			flipCornerPlaySound: <{$settings.flipCornerPlaySound}>,
+			zoomEnabled: <{$settings.zoomEnabled}>,
+			zoomPath: "<{$xoops_url}>/modules/pageflip/pages/large/",
+			zoomImageWidth: <{$settings.zoomImageWidth}>,
+			zoomImageHeight: <{$settings.zoomImageHeight}>,
+			zoomOnClick: <{$settings.zoomOnClick}>,
+			zoomUIColor: 0x<{$settings.zoomUIColor}>,
+			zoomHint: "<{$settings.zoomHint}>",
+			zoomHintEnabled: <{$settings.zoomHintEnabled}>,
+			centerBook: <{$settings.centerBook}>,		
+			useCustomCursors: <{$settings.useCustomCursors}>,
+			dropShadowEnabled: <{$settings.dropShadowsEnabled}>,
+			dropShadowHideWhenFlipping: <{$settings.dropShadowsHideWhenFlipping}>,
+			backgroundColor: 0x<{$settings.backgroundColor}>,
+			backgroundImage: "<{$settings.backgroundImage}>",
+			backgroundImagePlacement: "<{$settings.backgroundImagePlacement}>", //  "top left", "center", "fit"
+			printEnabled: <{$settings.printEnabled}>,
+			printTitle: "<{$settings.printTitle}>",
+			downloadURL: "<{$settings.downloadURL}>",
+			downloadTitle: "<{$settings.downloadTitle}>",
+			downloadSize: "<{$settings.downloadSize}>",
+			downloadComplete: "<{$settings.downloadComplete}>",
+			extXML: ""
+		};
+		
+		this.containerId = "<{$reference}>Container";
+		this.forwardButtonId = "<{$reference}>ForwardButton";
+		this.backButtonId = "<{$reference}>BackButton";
+		this.zoomButtonId = "<{$reference}>ZoomButton";
+		this.printButtonId = "<{$reference}>PrintButton";
+		this.downloadButtonId = "<{$reference}>DownloadButton";
+		this.currentPagesId = "<{$reference}>CurrentPages";
+		this.totalPagesId = "<{$reference}>TotalPages";
+		this.contentsMenuId = "<{$reference}>ContentsMenu";		
+};
+
+<{$reference}>FlippingBook.prototype.create = function(){
+	this.settings.pagesSet = this.pages;
+	this.settings.zoomPagesSet = this.zoomPages;
+	this.settings.printPagesSet = this.printPages;
+	
+	if( location.hash.substr(1) != "" )
+		this.settings.firstPageNumber = location.hash.substr(1);
+	
+	this.addLoadEvent( this.onWindowLoad );
+	swfobject.embedSWF("<{$xoops_url}>/modules/pageflip/swf/FlippingBook.swf", this.containerId, this.stageWidth, this.stageHeight, "8.0.0", "<{$xoops_url}>/modules/pageflip/swf/expressInstall.swf", this.settings, {allowScriptAccess: "always", bgcolor:  "#" + this.settings.backgroundColor.toString( 16 ) });
+}
+
+<{$reference}>FlippingBook.prototype.getFlippingBookReference = function() {
+	return this.getObjectReference( this.containerId );
+}
+
+<{$reference}>FlippingBook.prototype.getObjectReference = function( id ) {
+	return document.getElementById( id );
+}
+
+<{$reference}>FlippingBook.prototype.flipForward = function() {
+	<{$reference}>flippingBook.getFlippingBookReference().flipForward();
+}
+
+<{$reference}>FlippingBook.prototype.flipBack = function() {
+	<{$reference}>flippingBook.getFlippingBookReference().flipBack();
+}
+
+<{$reference}>FlippingBook.prototype.zoomButtonClick = function() {
+	if( <{$reference}>flippingBook.getFlippingBookReference().isZoomedIn() )
+		<{$reference}>flippingBook.zoomOut();
+	else
+		<{$reference}>flippingBook.zoomIn();
+}
+
+<{$reference}>FlippingBook.prototype.zoomIn = function() {
+	this.getFlippingBookReference().zoomIn();
+}
+
+<{$reference}>FlippingBook.prototype.zoomOut = function() {
+	this.getFlippingBookReference().zoomOut();
+}
+
+<{$reference}>FlippingBook.prototype.print = function() {	
+	<{$reference}>flippingBook.getFlippingBookReference().print();
+}
+
+<{$reference}>FlippingBook.prototype.downloadFile = function() {	
+	if( <{$reference}>flippingBook.settings.downloadURL )
+		<{$reference}>flippingBook.getFlippingBookReference().downloadFile();
+}
+
+<{$reference}>FlippingBook.prototype.onWindowLoad = function(){	
+	var forwardButton = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.forwardButtonId );
+	if( forwardButton ){
+		forwardButton.style.cursor = "pointer";
+		forwardButton.onclick = <{$reference}>flippingBook.flipForward;
+	}
+	
+	var backButton = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.backButtonId );
+	if( backButton ){
+		backButton.style.cursor = "pointer";
+		backButton.onclick = <{$reference}>flippingBook.flipBack;
+	}
+	
+	var zoomButton = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.zoomButtonId );
+	if( zoomButton ){
+		zoomButton.style.cursor = "pointer";
+		zoomButton.onclick = <{$reference}>flippingBook.zoomButtonClick;
+	}
+	
+	var printButton = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.printButtonId );
+	if( printButton ){
+		printButton.style.cursor = "pointer";
+		printButton.onclick = <{$reference}>flippingBook.print;
+	}
+
+	var downloadButton = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.downloadButtonId );
+	if( downloadButton ){
+		downloadButton.style.cursor = "pointer";
+		downloadButton.onclick = <{$reference}>flippingBook.downloadFile;
+	}
+	
+	<{$reference}>flippingBook.buildContentsMenu();
+}
+
+<{$reference}>FlippingBook.prototype.onPutPage = function( leftPageNumber, rightPageNumber ){
+	this.updatePagination( leftPageNumber, rightPageNumber );
+	this.updateContentsMenu( leftPageNumber, rightPageNumber );
+}
+
+<{$reference}>FlippingBook.prototype.updatePagination = function( leftPageNumber, rightPageNumber ){
+	var leftPageExists = ( leftPageNumber != undefined );
+	var rightPageExists = ( rightPageNumber != undefined );
+			
+	var pageNumberString = leftPageNumber + "-" + rightPageNumber;
+	if( !leftPageExists )
+		pageNumberString = rightPageNumber;	
+	if( !rightPageExists )
+		pageNumberString = leftPageNumber;
+
+	this.getObjectReference( this.currentPagesId ).innerHTML = pageNumberString;
+	this.getObjectReference( this.totalPagesId ).innerHTML = " / " + this.getFlippingBookReference().totalPages();	
+}
+
+<{$reference}>FlippingBook.prototype.buildContentsMenu = function(){
+	var contentsSelect = this.getObjectReference( this.contentsMenuId );
+	
+	if( contentsSelect ){
+		for( var i = 0; i < this.contents.length; i++ )
+			contentsSelect.options[i] = new Option(this.contents[i][0], this.contents[i][1]);
+			
+		contentsSelect.onchange = this.onContentsChange;
+	}
+}
+
+<{$reference}>FlippingBook.prototype.onContentsChange = function(){
+	var contentsSelect = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.contentsMenuId );
+	var pageNumber = contentsSelect.options[contentsSelect.selectedIndex].value;
+	
+	if( pageNumber )
+		<{$reference}>flippingBook.getFlippingBookReference().flipGotoPage( pageNumber );
+}
+
+<{$reference}>FlippingBook.prototype.updateContentsMenu = function( leftPageNumber, rightPageNumber ){
+	var contentsSelect = <{$reference}>flippingBook.getObjectReference( <{$reference}>flippingBook.contentsMenuId );
+
+	if( contentsSelect ){
+		for( var i = 0; i < this.contents.length - 1; i++ ){
+			var minPage = contentsSelect.options[i].value;
+			var maxPage = contentsSelect.options[i+1].value;
+			var leftOK = false;
+			var rightOK = false;
+			
+			if( leftPageNumber )
+				leftOK = ( Number( leftPageNumber ) >=  minPage && Number( leftPageNumber ) <= maxPage );
+			else
+				leftOK = true;
+
+			if( rightPageNumber )
+				rightOK = ( Number( rightPageNumber ) >=  minPage && Number( rightPageNumber ) <= maxPage );
+			else
+				rightOK = true;
+				
+			if( leftOK && rightOK )	
+				break;
+		}	
+		contentsSelect.selectedIndex = i;
+	}
+}
+
+<{$reference}>FlippingBook.prototype.getWindowHeight = function() {
+	var windowHeight = 0;
+	
+	if (typeof(window.innerHeight) == 'number' ) {
+		windowHeight=window.innerHeight;
+	}
+	else {
+		if (document.documentElement &&	document.documentElement.clientHeight) {
+				windowHeight = document.documentElement.clientHeight;
+		}
+		else {
+			if (document.body&&document.body.clientHeight) {
+				windowHeight=document.body.clientHeight;
+			}
+		}
+	}
+	
+	return windowHeight;
+}
+
+<{$reference}>FlippingBook.prototype.addLoadEvent = function ( fn ) {
+	if (typeof window.addEventListener != "undefined") {
+		window.addEventListener("load", fn, false);
+	}
+	else if (typeof document.addEventListener != "undefined") {
+		document.addEventListener("load", fn, false);
+	}
+	else if (typeof window.attachEvent != "undefined") {
+		window.attachEvent("onload", fn);
+	}
+	else if (typeof window.onload == "function") {
+		var fnOld = window.onload;
+		window.onload = function() {
+			fnOld();
+			fn();
+		};
+	}
+	else {
+		window.onload = fn;
+	}
+}
+
+<{$reference}>FlippingBook.prototype.handleWheel = function ( delta ){
+	this.getFlippingBookReference().onWheelScroll( delta );
+}
+
+<{$reference}>flippingBook = new <{$reference}>FlippingBook();
+
+function <{$reference}>wheel(event){
+	var delta = 0;
+	if (!event) event = window.event;
+	if (event.wheelDelta) {
+		delta = event.wheelDelta/120; 
+		if (window.opera) delta = -delta;
+	} else if (event.detail) {
+		delta = -event.detail/3;
+	}
+	if (delta)
+		<{$reference}>flippingBook.handleWheel(delta);
+        if (event.preventDefault)
+                event.preventDefault();
+        event.returnValue = false;
+}
+
+if (window.addEventListener)
+	window.addEventListener('DOMMouseScroll', <{$reference}>wheel, false);
+window.onmousewheel = document.onmousewheel = <{$reference}>wheel;
+
