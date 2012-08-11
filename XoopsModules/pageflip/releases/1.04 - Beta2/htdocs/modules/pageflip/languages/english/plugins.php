@@ -1,6 +1,6 @@
 <?php
 
-	// CSS Class Plugins Define (Do Not Change)
+	// CSS Class Plugins define(Do Not Change)
 	define('_MI_PAGEFLIP_CSS_FOOTER_PLUGINFILE', 'css.footer');
 	define('_MI_PAGEFLIP_CSS_PAGINATION_PLUGINFILE', 'css.pagination');
 	define('_MI_PAGEFLIP_CSS_CONTENTS_PLUGINFILE', 'css.contents');
